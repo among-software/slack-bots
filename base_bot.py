@@ -18,7 +18,7 @@ def channelId(channel_name, slack_token):
     channel_list = json_normalize(res.json()['channels'])
     channel_id = list(channel_list.loc[channel_list['name'] == channel_name, 'id'])[0]
 
-    return {'channel_name': channel_name, 'channel_id': channel_id}
+    return (channel_name, channel_id)
 
 
 def sendMessage(channel_id, message, slack_token):
